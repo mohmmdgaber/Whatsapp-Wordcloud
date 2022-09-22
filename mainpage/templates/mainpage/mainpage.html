@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'mainpage/style.css' %}">
+  <title>Whatsapp to wordcloud</title>
+</head>
+
+
+<body class="css-selector">
+  <div class="overlay">
+    <div class="overlay__inner">
+      <h1 class="overlay__title">
+        <div class="grid_item"> Convert Whatsapp (</div>
+        <div class="grid_item"><img id="logo" src="{% static 'mainpage/photos/logo/social-whatsapp-circle-512.webp' %}"
+            width="30" height="30" alt="Whatsapp logo"></div>
+        <div class="grid_item">) chats into a word-cloud</div>
+
+      </h1>
+      <p class="overlay__description">
+        {{message}}
+
+      </p>
+      <!-- Upload section -->
+      <!-- <div class="uploader"> -->
+      <form id="file-upload-form" class="uploader" >
+        {% csrf_token %}
+        <input id="file-upload" type="file" name="fileUpload" accept=".txt" />
+
+        <label for="file-upload" id="file-drag">
+          <img id="file-image" src="#" alt="Preview" class="hidden">
+          <div id="start">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <div>Select a file or drag here</div>
+            <div id="notimage" class="hidden">Please select an .txt file</div>
+            <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+          </div>
+          <div id="response" class="hidden">
+            <div id="messages"></div>
+            <progress class="progress" id="file-progress" value="0">
+              <span>0</span>%
+            </progress>
+          </div>
+        </label>
+      </form>
+    <!-- </div> -->
+      <!-- end section -->
+      <p class="overlay__description">
+        This is how you export the .txt chats from Whatsapp
+
+      </p>
+      <video class="overlay__description_2"  controls onload="scatterloop()">
+        <source src="{% static 'mainpage/video/Untitled Project.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="overlay__description">
+All your data gets erased off the server immediatly after loading the wordclouds
+      </p>
+   
+    </div>
+  </div>
+  <!-- <div id="scattered" class="scattered"></div> -->
+  <script src="{% static 'mainpage/js/common.json' %}"></script>
+<script src="{% static 'mainpage/js/anime.min.js' %}"></script>
+<script type="module" src="{% static 'mainpage/js/upload.js' %}" ></script>
+
+</body>
+
+</html>

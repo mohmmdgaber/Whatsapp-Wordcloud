@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'mainpage/style2.css' %}">
+  <title>Whatsapp to wordcloud</title>
+</head>
+
+
+<body class="css-selector"  onload="removedata()">
+  <div class="overlay_word">
+    <div class="overlay__inner">
+      <p class="overlay__title_sec">
+        {{name1}}'s Wordcloud
+      </p>
+
+    <form action="">
+        {% csrf_token %}
+
+    </form>
+   
+   
+    <img class="img_class" src="{% static 'mainpage/wordcloud/'  %}{{imageone}}" alt="">
+    <p class="overlay__title_sec">
+      {{name2}}'s Wordcloud
+    </p>
+    <img class="img_class" src="{% static 'mainpage/wordcloud/'  %}{{imagetwo}}" alt="">
+
+  </div>
+</div>
+  <!-- <div id="scattered" class="scattered"></div> -->
+  <script type="text/javascript" src="{% static 'mainpage/js/loadsec.js' %}" ></script>
+  <script src="{% static 'mainpage/js/common.json' %}"></script>
+<script src="{% static 'mainpage/js/anime.min.js' %}"></script>
+<script type="module" src="{% static 'mainpage/js/upload.js' %}" ></script>
+
+</body>
+
+</html>
