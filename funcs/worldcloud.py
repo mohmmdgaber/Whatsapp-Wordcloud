@@ -122,6 +122,7 @@ def fixxword(wrd):
         
 
 def filter_dics(filename):
+  nltk.download('stopwords')
   dics=getchats(filename)
   firs=dics("firstname")
   sec=dics("secondname")

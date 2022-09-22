@@ -21,6 +21,7 @@ class Ajaxhandler(View):
             strr=''
         return render(request, "mainpage/mainpage.html",{'message':strr})
     def post(self,request,msg):
+        filename=msg+'.txt'
         print("posttt")
         upload_file = request.FILES['drive_file']
         print(upload_file)
@@ -36,6 +37,7 @@ class Ajaxhandler(View):
             for c in upload_file.chunks():
              dest.write(c)
            ret['file_remote_path'] = target
+    
         else:
           return HttpResponse(status=500)
         return JsonResponse(ret)
@@ -45,6 +47,11 @@ def redirectindex(request):
     return redirect('/None')
 
 def index(request,msg):
+    filename=msg+'.txt'
+    txt = os.path.join(settings.PULL_DRIVER_UPLOAD_PATH, filename)
+    if  not (os.path.isfile(txt)):
+       raise Exception("Error with upload")
+
     if request.method == "POST":
         print('reuqstttt')
 
