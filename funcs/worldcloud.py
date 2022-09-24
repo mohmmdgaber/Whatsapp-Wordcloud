@@ -122,7 +122,7 @@ def fixxword(wrd):
         
 
 def filter_dics(filename):
-  nltk.download('stopwords')
+  # nltk.download('stopwords')
   dics=getchats(filename)
   firs=dics("firstname")
   sec=dics("secondname")
@@ -187,7 +187,7 @@ def toWordCloud(filename,usr):
   plt.axis("off")
   full_frame(10,10)
   plt.imshow(wordcloud, interpolation='antialiased')
-  plt.savefig(os.path.join(settings.WORDCLOUD_SAVE_PATH,filename+'&&'+usr+'.png'))
+  plt.savefig(settings.WORDCLOUD_SAVE_PATH+'/'+filename+'&&'+usr+'.png')
 
 
 

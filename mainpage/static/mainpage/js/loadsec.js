@@ -13,7 +13,7 @@ function genphoto() {
   
     }))
     var urll='/wordcloud/'
-    str=urll+window.location.href.toString().split('redirect-success/',2)[1]
+    str=urll+window.location.href.toString().split('/redirect-success/',2)[1]
     console.log(str)
     window.location.href =str; 
    

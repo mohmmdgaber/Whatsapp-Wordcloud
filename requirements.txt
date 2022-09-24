@@ -3,3 +3,5 @@ nltk
 matplotlib 
 wordcloud
 python-bidi
+dropbox
+django-storages[dropbox]

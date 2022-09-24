@@ -10,7 +10,7 @@ import common from './common.json' assert { type: 'json' };
 //   return objj;
 
 // }
-const randomtoken=generate_token(32);
+const randomtoken=generate_token(10);
  function getrandomword(){
    var lenwor=common["commonWords"].length;
    var ranwordindex=Math.floor(Math.random()*1000 % lenwor);
@@ -221,6 +221,7 @@ function ekUpload(){
 
       
       if (xhr.upload) {
+        var ran;
 
         // Check if file is less than x MB
         if (file.size <= fileSizeLimit * 1024 * 1024) {
@@ -235,7 +236,7 @@ function ekUpload(){
 
             if (xhr.readyState == 4) {
               console.log("Done uploadinggg")
-              var urll='/redirect-success/'+randomtoken
+              var urll='/redirect-success/'+ran
               window.location.href =urll; 
               // Everything is good!
               // const csrf=document.querySelector('[name=csrfmiddlewaretoken]').value
@@ -275,6 +276,7 @@ function ekUpload(){
           // xhr.send(fd);  /* Send to server */ 
           const csrf=document.querySelector('[name=csrfmiddlewaretoken]').value
           var filename=randomtoken+'.txt';
+          ran=randomtoken;
           xhr.open('post', '', true);
           xhr.setRequestHeader("X-CSRFToken", csrf);
           xhr.setRequestHeader('X-File-Name', filename);

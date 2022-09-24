@@ -15,7 +15,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-CSRF_TRUSTED_ORIGINS = ["https://whatsapp-wordcloud.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ["https://whatsappcloud-waznykkrba-zf.a.run.app"]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -26,13 +26,14 @@ SECRET_KEY = 'django-insecure-20*n6!%-ug)u!f#bg2x1^180yb%8tyk%d_#d1vp#b&++0%--o@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'whatsapp-wordcloud.herokuapp.com', '127.0.0.1','1.1.1.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'whatsapp-wordcloud.herokuapp.com', '127.0.0.1','1.1.1.1','whatsappcloud-waznykkrba-zf.a.run.app']
 
 BASEE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainpage'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,10 +122,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+DROPBOX_OAUTH2_TOKEN='sl.BP3W1JACxe6bbFyYzYmGIGsxitKD7ZEU7qCFzvGFflmKJNwV2meKXAuqyFxwxwZ-f8FmcVe49F-Gwur2MRoDiY0TyDBP0qYY-h8n7ZAV9ZEAZVWFOWe1V4iqc_JTgvIZrIa9lgs'
+DROPBOX_APP_KEY='b790p69iudrhxkp'
+DROPBOX_APP_SECRET='wyv0m3s4ao3ecri'
+DROPBOX_OAUTH2_REFRESH_TOKEN='fBU6Lqp_FVgAAAAAAAAAAfLbsA-1ZonGGvFivgg5Zdx4otu5ExXb7lbA-Vbt-_Kn'
 STATIC_URL = '/static/'
 PULL_DRIVER_UPLOAD_PATH=os.path.join(BASEE_DIR, 'uploads')
 FONT_PATH=os.path.join(BASEE_DIR, 'fonts')
 WORDCLOUD_SAVE_PATH=os.path.join(BASEE_DIR, 'mainpage/static/mainpage/wordcloud')
+
+DROPBOX_ROOT_PATH='/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
